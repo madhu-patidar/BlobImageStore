@@ -1,0 +1,37 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+      <div  class="navbar-brand">
+          <a id="menu-toggle" href="#" class="btn-menu toggle">
+              <i class="fa fa-bars"></i>
+          </a>
+
+        <%= link_to 'NeoTracker', root_path, class: "nav-link" %>
+      </div>
+    </div>
+    <div class='pull-right' style="margin:15px">
+      <ul style="font-size: 16px;">
+        <% if user_signed_in? %>
+          <li>
+
+           <i class="fas fa-sign-out-alt nav-link"></i>
+            <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link") %>        
+          </li>
+        <% else %>
+          <li>
+            <i class="fas fa-sign-in-alt nav-link"></i>&nbsp;
+            <%= link_to('Login', new_user_session_path, class: "nav-link")  %>  
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+

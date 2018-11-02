@@ -1,0 +1,24 @@
+<section class="page-title">
+  <h1>Sessions</h1>
+</section>
+<div class="form-group pull-right">
+  <label for="sel1 pull-right">Select trainee:</label>
+  <%= select_tag "user", options_for_select(@users), class: "form-control", id: "trainee", prompt: 'All user' %>
+</div>
+<div id="user-table">
+	<%= render 'table' %>
+</div>
+<%= will_paginate @sessions, renderer: BootstrapPagination::Rails %>
+
+<script>
+$( "select#trainee").change(function(event) {
+	var user_email = event.target.value
+  $.ajax({
+    url: '/training_sessions?user_email='+user_email,
+    type: 'get',
+    dataType: 'script',
+    success: function(data){
+      }
+  })
+});
+</script>

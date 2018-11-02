@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <% @image_stores.each do |image_store| %>
+      <div class="col-md-4">
+	      <div id="boxshadow" class="mrg10" style="">
+          <%= image_tag image_store.image.url(:medium), style: "width: 300px;height: 200px" %>
+          <br>
+          <br>
+          <p class="b" style="font-size: 18px" > 
+            <b>Screen url : </b> 
+            <%= link_to image_store.url, '', title:image_store.url, target: :_blank %> 
+            <br>
+          </p>
+	       </div>
+      </div>
+    <% end %>
+  </div>
+  <br>
+</div>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BlobImageStore</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+
+  <body class=<%= controller_name%>>
+    <div id='wrapper' class=<%="#{params[:controller]} #{params[:action]}"%>>
+      <!-- sidebar -->
+      <%= render 'layouts/sidebar' %>
+
+      <!-- a wrapper element  -->
+      <div id='page-wrapper' role='main' class=<%= (@extra_class.present?) ? 'main gray-bg #{@extra_class}' : 'main gray-bg'%>>
+        <div class='header'>
+          <%= render 'layouts/header'%>
+        </div>
+        <%= yield%>
+        <div class='footer'>
+          <%= render 'layouts/footer' %>
+        </div>
+    </div>
+  </body>
+</html>
