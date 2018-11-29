@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <% @work_logs.each do |work_log| %>
+      <div class="col-md-4">
+	      <div id="boxshadow" class="mrg10" style="">
+          <%= link_to work_log_path(work_log) do %>
+            <%= image_tag work_log.image.url(:medium), style: "width: 300px;height: 200px" %>
+          <% end %>
+          <br>
+          <br>
+          <p class="b" style="font-size: 18px" > 
+            <b>Screen url : </b> 
+            <%= link_to work_log.url, '', title:work_log.url, target: :_blank %> 
+            <br>
+          </p>
+          <p class="b" style="font-size: 18px" > 
+            <b>Key Press count : </b> 
+            <%= work_log.key_press_count %> 
+            <br>
+          </p>
+          <p class="b" style="font-size: 18px" > 
+            <b>mouse movement count : </b> 
+            <%= work_log.mouse_movement_count %> 
+            <br>
+          </p>
+	       </div>
+      </div>
+    <% end %>
+  </div>
+  <br>
+</div>

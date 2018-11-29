@@ -166,3 +166,15 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: black;
+  color: white;
+  left:0;
+  padding: 10px;
+  font-size: 14px;
+}

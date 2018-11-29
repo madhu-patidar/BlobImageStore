@@ -1,0 +1,12 @@
+<section class="page-title">
+  <h1>Idle Time list</h1>
+</section>
+<div class="form-group pull-right">
+  <label for="sel1 pull-right">Select trainee:</label>
+  <%#= select_tag "user", options_for_select(@users), class: "form-control", id: "trainee", prompt: 'All user' %>
+</div>
+<div id="user-table">
+	<%= render 'table' %>
+</div>
+
+<%= will_paginate @idleTimes, renderer: BootstrapPagination::Rails %>

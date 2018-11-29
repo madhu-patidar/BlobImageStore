@@ -1,0 +1,5 @@
+<div  style="margin: 50px">
+	<%= link_to "<button class='btn btn-primary'>Back</button>".html_safe, URI(request.referer).path + '?session_id=' + @work_log.session_id.to_s, class: "pull-right"  %><br><br><br>
+
+	<%= image_tag @work_log.image.url, style: "border: solid #819281;width:97%" %>
+</div>

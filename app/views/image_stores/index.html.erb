@@ -1,9 +1,0 @@
-
-<section class="page-title">
-  <h1 style="margin-bottom: 40px"> Stored screen images with session ID : <%= @image_stores.first.session_id %></h1>
-</section>
-<%= render 'images' %>
-<br>
-<%= will_paginate @image_stores, renderer: BootstrapPagination::Rails %>
-
-

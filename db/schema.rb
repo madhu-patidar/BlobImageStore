@@ -10,19 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181012071053) do
+ActiveRecord::Schema.define(version: 20181126104501) do
 
-  create_table "image_stores", force: :cascade do |t|
+  create_table "idle_times", force: :cascade do |t|
     t.integer "session_id"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
-    t.string "url"
-    t.string "key_press_count"
-    t.index ["session_id"], name: "index_image_stores_on_session_id"
+    t.index ["session_id"], name: "index_idle_times_on_session_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -46,6 +42,20 @@ ActiveRecord::Schema.define(version: 20181012071053) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "work_logs", force: :cascade do |t|
+    t.integer "session_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.string "url"
+    t.integer "key_press_count"
+    t.integer "mouse_movement_count"
+    t.index ["session_id"], name: "index_work_logs_on_session_id"
   end
 
 end

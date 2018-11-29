@@ -5,7 +5,7 @@
       <th>User email ID</th>
       <th>Start Time</th>
       <th>End Time</th>
-      <th>Image</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -15,9 +15,9 @@
         <td><%= session.user_email %></td>
         <td><%= session.start_time %></td>
         <td><%= session.end_time %></td>
-        <td><% session.created_at %></td>
+        <!-- <td><% session.created_at %></td> -->
         <td>
-        <%= link_to 'Images', image_stores_path(session_id: session.id), title: 'Show Images' %>
+          <%= link_to "<button class='btn btn-primary'>Work Log</button>".html_safe, work_logs_path(session_id: session.id), title: 'Show Work Log' %>
         </td>
       </tr>
     <% end %>

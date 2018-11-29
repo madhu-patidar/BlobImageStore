@@ -1,0 +1,25 @@
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Session ID</th>
+      <th>Idle time start</th>
+      <th>Idle time end</th>
+      <th>user</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @idleTimes.each do |idle| %>
+      <tr>
+        <td><%= idle.id %></td>
+        <td><%= idle.session_id %></td>
+        <td><%= ist idle.start_time %></td>
+        <td><%= ist idle.end_time %></td>
+        <td><%= idle.session.user.email %></td>
+        <td>
+        <%#= link_to 'Images', image_stores_path(session_id: session.id), title: 'Show Images' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

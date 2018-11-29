@@ -11,8 +11,8 @@ module Api
 
     def upload_image
       session = Session.find params[:session][:session_id]
-      image_store = ImageStore.create(session_id: session.id, image: params[:session][:image], url: params[:session][:url])
-      render json: { message: 'Successfully uploded imagge', status: 200 }
+      image_store = WorkLog.create(session_id: session.id, image: params[:session][:image], url: params[:session][:url], mouse_movement_count: params[:session][:mouse_movement_count], key_press_count: params[:session][:key_press_count])
+      render json: { message: 'Successfully uploded image', status: 200 }
     end
 
     def login
@@ -30,7 +30,7 @@ module Api
 
       def create_or_update_session(params)
         # TO DO ME
-        params[:user_id] = '3'
+        params[:user_id] = '1'
         params[:user_email] = 'mm@gmail.com'
         if params[:session_id].present? && params[:training_status] == 'end'
           session = Session.find(params[:session_id])
@@ -44,14 +44,14 @@ module Api
       end
 
       def validate_session_params
-        if params_missing?(params[:session], [:session_id, :image, :url])
+        if params_missing?(params[:session], [:session_id, :image, :url, :mouse_movement_count, :key_press_count])
           # missing parameter
           render json: @error_hash, status: 400
         end
       end
 
       def session_params
-        params.require(:session).permit(:session_id, :image, :time, :url)
+        params.require(:session).permit(:session_id, :image, :time, :url, :mouse_movement_count, :key_press_count)
       end
     end
   end
